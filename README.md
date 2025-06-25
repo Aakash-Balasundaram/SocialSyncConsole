@@ -11,7 +11,7 @@ Developing by authors:
     <td align="center">
       <a href="https://github.com/S-Bharath16">
         <img src="https://avatars.githubusercontent.com/S-Bharath16" width="100px;" alt="S-Bharath16"/><br />
-        <sub><b>S. Bharath</b></sub>
+        <sub><b>S Bharath</b></sub>
       </a>
     </td>
     <td align="center">
