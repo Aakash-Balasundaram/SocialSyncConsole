@@ -4,7 +4,6 @@
 
 
 
-Developing by authors:
 ### 👥 Authors
 
 <table>
