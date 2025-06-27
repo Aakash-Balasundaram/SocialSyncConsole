@@ -22,3 +22,7 @@
     </td>
   </tr>
 </table>
+
+
+###📄 License
+This project is licensed under the AVV License.
