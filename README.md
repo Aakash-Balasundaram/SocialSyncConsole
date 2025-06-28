@@ -1,6 +1,6 @@
 # 🌐 SocialSyncConsole (SSC)
 
-**SocialSyncConsole (SSC)** is a modern **Social Media Dashboard** that helps you monitor and manage all your social media accounts in one place. This **cross-platform web application** seamlessly connects with services like **Instagram, Facebook, Twitter (X), and WhatsApp**, providing a unified view and control panel for your online presence.
+**SocialSyncConsole (SSC)** is a modern **Social Media Dashboard** that helps you monitor and manage all your social media accounts in one place. This **cross-platform web application** seamlessly connects with services like **Instagram, Facebook, Twitter (X) YouTube, LinkedIn and WhatsApp**, providing a unified view and control panel for your online presence.
 
 
 
