@@ -7,7 +7,7 @@
 
 
 body{
-  background-image: url('D:\Projects\SocialSynConsole\Frontend\SocialSyncConsole\src\assets\homepg.svg');
+  background-image: url('./src/assets/homepg.svg');
   background-repeat: repeat-x and repeat-y;
   background-attachment: fixed;
   background-size: cover;
