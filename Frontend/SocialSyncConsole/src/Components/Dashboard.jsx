@@ -19,7 +19,7 @@ function Dashboard(){
                 <div className = "card" style={cardStyle}>
                     <FaInstagram size={30} color='#e1306c'/>Instagram</div>
                 <div className = "card" style={cardStyle}>
-                    <FaXTwitter size={30} color='#000000' />Twitter(X)</div>
+                    <FaXTwitter size={30} color='#ECF0F1' />Twitter(X)</div>
                 <div className = "card" style={cardStyle}>
                     <FaWhatsapp size={30} color='#075e54' />WhatsApp</div>
                 <div className = "card" style={cardStyle}>
