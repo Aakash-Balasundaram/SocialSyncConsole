@@ -6,7 +6,7 @@ import Infobox from './Components/Description';
 
 function App() {
   return (
-    <div className="flex flex-col gap-[2rem] sm:gap-[3rem] md:gap-[4rem]">
+    <div className="flex flex-col gap-[1rem] sm:gap-[2rem] md:gap-[3rem]">
       <Navbar />
       <Infobox />
       <Dashboard />
