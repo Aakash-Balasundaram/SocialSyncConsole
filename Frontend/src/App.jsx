@@ -5,11 +5,13 @@ import Navbar from './Components/Navbar'
 
 function App() {
   return (
-    <div >
-      <Navbar />
-      <main className="pt-16"> {/* pt-16 ≈ padding-top: 4rem to push below navbar */}
+    <div>
+      <div className='flex flex-col gap-4rem'>
+        <Navbar />
+      </div>
+      <div>
         <Dashboard />
-      </main>
+      </div>
       <Footer />
     </div>
   );

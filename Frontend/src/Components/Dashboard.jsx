@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaWhatsapp, FaLinkedin, FaYoutube } from 'reac
 import { FaXTwitter } from 'react-icons/fa6';
 
 function Dashboard() {
-    const iconSizeRem = '1.5rem';
+    const iconSizeRem = '1.75rem';
 
     const cardStyle = {
         display: 'flex',
@@ -13,8 +13,12 @@ function Dashboard() {
         color: '#E67E22',
     };
 
-    const iconStyle = {
+    const iconBaseStyle = {
         fontSize: iconSizeRem,
+        padding: '0.25rem',
+        borderRadius: '9999px',
+        borderWidth: '2px',
+        borderStyle: 'solid',
     };
 
     return (
@@ -23,34 +27,82 @@ function Dashboard() {
                 className="platform-cards"
                 style={{
                     display: 'flex',
-                    gap: '0.5rem',
+                    gap: '1rem',
                     flexWrap: 'wrap',
                     justifyContent: 'center',
                     marginTop: '25rem',
                 }}
             >
                 <div className="card" style={cardStyle}>
-                    <FaFacebook className="border border-white border-opacity-50 p-1 rounded" style={{ ...iconStyle, color: '#3498db' }} />
+                    <FaFacebook
+                        className="shadow-[0_0_8px_#3498db]"
+                        style={{
+                            ...iconBaseStyle,
+                            color: '#3498db',
+                            borderColor: '#3498db',
+                            boxShadow: '0 0 0.5rem #3498db',
+                        }}
+                    />
                     Facebook
                 </div>
                 <div className="card" style={cardStyle}>
-                    <FaInstagram className="border border-white border-opacity-50 p-1 rounded" style={{ ...iconStyle, color: '#e1306c' }} />
+                    <FaInstagram
+                        className="shadow-[0_0_8px_#e1306c]"
+                        style={{
+                            ...iconBaseStyle,
+                            color: '#e1306c',
+                            borderColor: '#e1306c',
+                            boxShadow: '0 0 0.5rem #e1306c',
+                        }}
+                    />
                     Instagram
                 </div>
                 <div className="card" style={cardStyle}>
-                    <FaXTwitter className="border border-white border-opacity-50 p-1 rounded" style={{ ...iconStyle, color: '#ECF0F1' }} />
-                    Twitter (X)
+                    <FaXTwitter
+                        className="shadow-[0_0_8px_#ECF0F1]"
+                        style={{
+                            ...iconBaseStyle,
+                            color: '#ECF0F1',
+                            borderColor: '#ECF0F1',
+                            boxShadow: '0 0 0.5rem #ECF0F1',
+                        }}
+                    />
+                    Twitter
                 </div>
                 <div className="card" style={cardStyle}>
-                    <FaWhatsapp className="border border-white border-opacity-50 p-1 rounded" style={{ ...iconStyle, color: '#075e54' }} />
+                    <FaWhatsapp
+                        className="shadow-[0_0_8px_#075e54]"
+                        style={{
+                            ...iconBaseStyle,
+                            color: '#075e54',
+                            borderColor: '#075e54',
+                            boxShadow: '0 0 0.5rem #075e54',
+                        }}
+                    />
                     WhatsApp
                 </div>
                 <div className="card" style={cardStyle}>
-                    <FaLinkedin className="border border-white border-opacity-50 p-1 rounded" style={{ ...iconStyle, color: '#0077B5' }} />
+                    <FaLinkedin
+                        className="shadow-[0_0_8px_#0077B5]"
+                        style={{
+                            ...iconBaseStyle,
+                            color: '#0077B5',
+                            borderColor: '#0077B5',
+                            boxShadow: '0 0 0.5rem #0077B5',
+                        }}
+                    />
                     LinkedIn
                 </div>
                 <div className="card" style={cardStyle}>
-                    <FaYoutube className="border border-white border-opacity-50 p-1 rounded" style={{ ...iconStyle, color: '#CD201F' }} />
+                    <FaYoutube
+                        className="shadow-[0_0_8px_#CD201F]"
+                        style={{
+                            ...iconBaseStyle,
+                            color: '#CD201F',
+                            borderColor: '#CD201F',
+                            boxShadow: '0 0 0.5rem #CD201F',
+                        }}
+                    />
                     YouTube
                 </div>
             </div>
