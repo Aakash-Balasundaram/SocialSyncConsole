@@ -30,7 +30,6 @@ function Dashboard() {
                     gap: '1rem',
                     flexWrap: 'wrap',
                     justifyContent: 'center',
-                    marginTop: '25rem',
                 }}
             >
                 <div className="card" style={cardStyle}>
