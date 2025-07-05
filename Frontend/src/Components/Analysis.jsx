@@ -70,7 +70,7 @@ export default function Analysis() {
                     const IconComponent = platform.icon;
                     return (
                         <div key={index} className="w-full">
-                            <div className={`${platform.bgGradient} ${platform.hoverBg} rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 relative group cursor-pointer`}>                        
+                            <div className={`${platform.bgGradient} ${platform.hoverBg} rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 relative group cursor-pointer z-10`}>                        
                                 {/* Main content */}
                                 <div className={`flex flex-col lg:flex-row items-start lg:items-center justify-between p-[1.5rem] lg:p-[2rem] text-white ${platform.hoverBgAlt} hover:text-white relative z-10 transition-colors duration-300 gap-[3rem] lg:gap-[4rem]`}>
                                     {/* Left side - Icon and Platform name */}
