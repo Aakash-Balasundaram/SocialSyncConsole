@@ -28,7 +28,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 20rem;
   min-height: 100vh;
 }
 
@@ -38,7 +38,7 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -69,7 +69,7 @@ button:focus-visible {
   }
 }
 
-/* ==== Bulb Glowing Styles (MODIFIED) ==== */
+/* ==== Bulb Glowing Styles (RESPONSIVE) ==== */
 
 /* Center the light setup and make it horizontal */
 .light {
@@ -79,129 +79,166 @@ button:focus-visible {
   transform: translateX(-50%);
   display: flex;
   flex-direction: row;
-  align-items: top;
+  align-items: flex-start;
   gap: 1rem;
   z-index: 10;
+}
+
+/* Main wire element - positioned relative to the bulb */
+.wire {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 0.125rem);
+  width: 0.25rem;
+  height: 2rem;
+  background: #333;
+  z-index: 1;
 }
 
 body.on {
   background: radial-gradient(#555, #111);
 }
 
-/* Smaller bulb */
+/* Responsive bulb - positioned 2rem down from top */
 .bulb {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   background: #444;
   border-radius: 50%;
   z-index: 2;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
 }
 
-/* Reduced intensity */
+/* Glow effect when bulb is on - moved to different pseudo-element */
 body.on .bulb {
   background: #fff;
   box-shadow:
-    0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 15px #fff,
-    0 0 20px #fff;
+    0 0 0.313rem #fff,
+    0 0 0.625rem #fff,
+    0 0 0.938rem #fff,
+    0 0 1.25rem #fff;
 }
 
-/* Smaller bulb stem */
+/* Bulb cap/connector at the top */
 .bulb::before {
   content: '';
   position: absolute;
-  left: calc(50% - 8.75px);
-  top: -25px;
-  width: 17.5px;
-  height: 40px;
-  background: #444;
-  border-top: 15px solid #000;
-  border-radius: 6px;
+  top: -0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.8rem;
+  height: 0.6rem;
+  background: #555;
+  border-radius: 0.1rem;
+  z-index: 3;
+  transition: all 0.3s ease;
 }
 
 body.on .bulb::before {
-  background: #fff;
+  background: #ddd;
 }
 
-/* Reduced glow blur */
-body.on .bulb::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 45px;
-  height: 45px;
-  background: #fff;
-  border-radius: 50%;
-  filter: blur(10px);
-}
-
+/* Responsive bulb stem - adjusted for hanging wire */
 .bulb span:nth-child(1) {
   position: absolute;
   display: block;
-  top: -8px;
-  left: -2px;
-  width: 15px;
-  height: 15px;
+  top: -0.5rem;
+  left: -0.125rem;
+  width: 0.938rem;
+  height: 0.938rem;
   background: transparent;
   transform: rotate(342deg);
-  border-bottom-right-radius: 40px;
-  box-shadow: 10px 10px 0 5px #444;
+  border-bottom-right-radius: 2.5rem;
+  box-shadow: 0.625rem 0.625rem 0 0.313rem #444;
+  transition: all 0.3s ease;
 }
 
 body.on .bulb span:nth-child(1) {
-  box-shadow: 10px 10px 0 5px #fff;
+  box-shadow: 0.625rem 0.625rem 0 0.313rem #fff;
 }
 
 .bulb span:nth-child(2) {
   position: absolute;
   display: block;
-  top: -8px;
-  right: -2px;
-  width: 15px;
-  height: 15px;
+  top: -0.5rem;
+  right: -0.125rem;
+  width: 0.938rem;
+  height: 0.938rem;
   background: transparent;
   transform: rotate(18deg);
-  border-bottom-left-radius: 40px;
-  box-shadow: -10px 10px 0 5px #444;
+  border-bottom-left-radius: 2.5rem;
+  box-shadow: -0.625rem 0.625rem 0 0.313rem #444;
+  transition: all 0.3s ease;
 }
 
 body.on .bulb span:nth-child(2) {
-  box-shadow: -10px 10px 0 5px #fff;
+  box-shadow: -0.625rem 0.625rem 0 0.313rem #fff;
+}
+
+/* Create glow effect using box-shadow only */
+body.on .bulb {
+  background: #fff;
+  box-shadow:
+    0 0 0.313rem #fff,
+    0 0 0.625rem #fff,
+    0 0 0.938rem #fff,
+    0 0 1.25rem #fff,
+    0 0 2rem rgba(255, 255, 255, 0.5),
+    0 0 3rem rgba(255, 255, 255, 0.3);
 }
 
 /* Short wire */
 .wire {
-  height: 80px;
+  height: 5rem;
   background: #000;
-  width: 4px;
+  width: 0.25rem;
+}
+
+/* Wire connecting to bulb - properly positioned and shortened */
+.bulb::after {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.2rem;
+  height: 1.5rem;
+  background: #333;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+/* Ensure wire stays same color when bulb is on */
+body.on .bulb::after {
+  background: #333;
 }
 
 /* Switch aligned to the right */
 .switch {
   position: relative;
   margin: 0;
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   background: linear-gradient(#eee, #ccc, #eee);
-  border: 3px solid #000;
-  border-radius: 10px;
+  border: 0.188rem solid #000;
+  border-radius: 0.625rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .switch .btn {
   position: relative;
-  width: 20px;
-  height: 35px;
+  width: 1.25rem;
+  height: 2.188rem;
   background: linear-gradient(#777, #fff, #777);
-  border-radius: 6px;
-  border: 2px solid #000;
+  border-radius: 0.375rem;
+  border: 0.125rem solid #000;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .switch .btn::before {
@@ -212,7 +249,8 @@ body.on .bulb span:nth-child(2) {
   width: 100%;
   height: 85%;
   background: linear-gradient(#fff, #fff);
-  border-radius: 4px;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
 }
 
 .on .switch .btn::before {
@@ -221,4 +259,169 @@ body.on .bulb span:nth-child(2) {
 
 #audio {
   display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .light {
+    top: 3%;
+    gap: 0.75rem;
+  }
+  
+  .wire {
+    left: calc(50% - 0.1rem);
+    width: 0.2rem;
+    height: 1.5rem;
+  }
+  
+  .bulb {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .bulb::before {
+    width: 0.6rem;
+    height: 0.4rem;
+    top: -0.2rem;
+  }
+  
+  /* Adjusted wire connection for tablet */
+  .bulb::after {
+    width: 0.15rem;
+    height: 1.2rem;
+    top: -1.2rem;
+  }
+  
+  body.on .bulb {
+    box-shadow:
+      0 0 0.25rem #fff,
+      0 0 0.5rem #fff,
+      0 0 0.75rem #fff,
+      0 0 1rem #fff,
+      0 0 1.5rem rgba(255, 255, 255, 0.5),
+      0 0 2rem rgba(255, 255, 255, 0.3);
+  }
+  
+  .bulb span:nth-child(1), .bulb span:nth-child(2) {
+    width: 0.75rem;
+    height: 0.75rem;
+    top: -0.4rem;
+  }
+  
+  .bulb span:nth-child(1) {
+    left: -0.1rem;
+    box-shadow: 0.5rem 0.5rem 0 0.25rem #444;
+  }
+  
+  .bulb span:nth-child(2) {
+    right: -0.1rem;
+    box-shadow: -0.5rem 0.5rem 0 0.25rem #444;
+  }
+  
+  body.on .bulb span:nth-child(1) {
+    box-shadow: 0.5rem 0.5rem 0 0.25rem #fff;
+  }
+  
+  body.on .bulb span:nth-child(2) {
+    box-shadow: -0.5rem 0.5rem 0 0.25rem #fff;
+  }
+  
+  .switch {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .switch .btn {
+    width: 1rem;
+    height: 1.75rem;
+    border-radius: 0.3rem;
+  }
+  
+  .switch .btn::before {
+    border-radius: 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .light {
+    top: 2%;
+    gap: 0.5rem;
+  }
+  
+  .wire {
+    left: calc(50% - 0.075rem);
+    width: 0.15rem;
+    height: 0.5rem;
+  }
+  
+  .bulb {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .bulb::before {
+    width: 0.5rem;
+    height: 0.3rem;
+    top: -0.15rem;
+  }
+  
+  /* Adjusted wire connection for mobile */
+  .bulb::after {
+    width: 0.125rem;
+    height: 0.8rem;
+    top: -0.8rem;
+  }
+  
+  body.on .bulb {
+    box-shadow:
+      0 0 0.2rem #fff,
+      0 0 0.4rem #fff,
+      0 0 0.6rem #fff,
+      0 0 0.8rem #fff,
+      0 0 1.2rem rgba(255, 255, 255, 0.5),
+      0 0 1.6rem rgba(255, 255, 255, 0.3);
+  }
+  
+  .bulb span:nth-child(1), .bulb span:nth-child(2) {
+    width: 0.563rem;
+    height: 0.563rem;
+    top: -0.3rem;
+  }
+  
+  .bulb span:nth-child(1) {
+    left: -0.075rem;
+    box-shadow: 0.375rem 0.375rem 0 0.188rem #444;
+  }
+  
+  .bulb span:nth-child(2) {
+    right: -0.075rem;
+    box-shadow: -0.375rem 0.375rem 0 0.188rem #444;
+  }
+  
+  body.on .bulb span:nth-child(1) {
+    box-shadow: 0.375rem 0.375rem 0 0.188rem #fff;
+  }
+  
+  body.on .bulb span:nth-child(2) {
+    box-shadow: -0.375rem 0.375rem 0 0.188rem #fff;
+  }
+  
+  .switch {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.4rem;
+  }
+  
+  .switch .btn {
+    width: 0.8rem;
+    height: 1.4rem;
+    border-radius: 0.25rem;
+  }
+  
+  .switch .btn::before {
+    border-radius: 0.15rem;
+  }
 }
