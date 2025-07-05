@@ -3,17 +3,18 @@ import Dashboard from './Components/Dashboard';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import Infobox from './Components/Description';
-import SplashCursor from './Components/SplashCursor';
-
+import Titlespace from './Components/Titlespace';
 
 
 function App() {
   return (
-    <div className="flex flex-col gap-[1rem] sm:gap-[2rem] md:gap-[3rem]">
-      <SplashCursor />
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <Infobox />
-      <Dashboard />
+      <div className="flex-1 flex flex-col justify-center items-center gap-[1.5rem] sm:gap-[2.5rem] md:gap-[3.5rem]">
+        <Titlespace />
+        <Infobox />
+        <Dashboard />
+      </div>
       <Footer />
     </div>
   );

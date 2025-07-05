@@ -6,7 +6,6 @@
 
 /* Body background */
 body {
-  background-image: url('./src/assets/homepg.svg');
   background-repeat: repeat-x and repeat-y;
   background-attachment: fixed;
   background-size: cover;
