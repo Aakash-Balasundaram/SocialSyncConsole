@@ -5,7 +5,6 @@ function Footer() {
         fontFamily: 'Arial, sans-serif',
         color: '#ffffff',
         padding: '1rem',
-        position: 'fixed',
         bottom: '0',
         left: '0',
         width: '100%',
