@@ -1,9 +1,10 @@
 import { CgProfile } from "react-icons/cg";
 import { MdNotifications } from "react-icons/md";
+import Lamp from "./Lamp";
 
 export default function Navbar() {
   return (
-    <div className="fixed top-0 left-0 w-full flex flex-row items-start justify-between bg-transparent px-[1rem] sm:px-[1.5rem] md:px-[2rem] py-[1rem] sm:py-[1.25rem] md:py-[1.5rem]">
+    <div className="fixed top-0 left-0 w-full flex flex-row items-start justify-between bg-transparent px-[1rem] sm:px-[1.5rem] md:px-[2rem] py-[0.75rem] sm:py-[1rem] md:py-[1.25rem]">
       <div>
         <img
           src="/src/assets/SYCicon.svg"
@@ -11,6 +12,7 @@ export default function Navbar() {
           className="h-[3.5rem] sm:h-[4.5rem] md:h-[6rem] lg:h-[7rem] object-contain"
         />
       </div>
+      <div className="flex justify-center items-center"><Lamp /></div>
 
       <div className="flex flex-row items-start gap-[0.75rem] sm:gap-[1rem] md:gap-[1.5rem]">
         <MdNotifications

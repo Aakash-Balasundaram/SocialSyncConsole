@@ -3,6 +3,7 @@ import Dashboard from './Components/Dashboard';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import Infobox from './Components/Description';
+import Lamp from './Components/Lamp';
 
 function App() {
   return (
