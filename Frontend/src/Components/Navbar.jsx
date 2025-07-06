@@ -18,17 +18,17 @@ export default function Navbar() {
         <MdNotifications
           className="text-[#f4aa20] cursor-pointer hover:text-[#f48e20] transition 
                     h-[0.75rem] w-[0.75rem] 
-                    sm:h-[1rem] sm:w-[1rem] 
-                    md:h-[1.25rem] md:w-[1.25rem] 
-                    lg:h-[1.5rem] lg:w-[1.5rem]"
+                    sm:h-[1.25rem] sm:w-[1.25rem] 
+                    md:h-[1.5rem] md:w-[1.5rem] 
+                    lg:h-[2rem] lg:w-[2rem]"
         />
         
-        <CgProfile
-          className="text-gray-300 cursor-pointer hover:text-white transition 
+        <CgProfile 
+          className="text-gray-500 cursor-pointer hover:text-white transition 
                     h-[0.75rem] w-[0.75rem] 
-                    sm:h-[1rem] sm:w-[1rem] 
-                    md:h-[1.25rem] md:w-[1.25rem] 
-                    lg:h-[1.5rem] lg:w-[1.5rem]"
+                    sm:h-[1.25rem] sm:w-[1.25rem] 
+                    md:h-[1.5rem] md:w-[1.5rem] 
+                    lg:h-[2rem] lg:w-[2rem]"
         />
       </div>
 

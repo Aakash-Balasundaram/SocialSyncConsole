@@ -1,7 +1,6 @@
 import { ReactTyped } from "react-typed";
 import '/src/index.css';
-import { useRef } from 'react';
-import VariableProximity from './VariableProximity';
+
 
 
 export default function Infobox() {
