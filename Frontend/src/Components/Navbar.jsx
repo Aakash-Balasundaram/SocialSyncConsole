@@ -16,7 +16,7 @@ export default function Navbar() {
 
       <div className="flex flex-row items-start gap-[0.75rem] sm:gap-[1rem] md:gap-[1.5rem]">
         <MdNotifications
-          className="text-[#f4aa20] cursor-pointer hover:text-[#f48e20] transition 
+          className="text-[rgb(247,195,99)] cursor-pointer hover:text-[#f48e20] transition 
                     h-[0.75rem] w-[0.75rem] 
                     sm:h-[1.25rem] sm:w-[1.25rem] 
                     md:h-[1.5rem] md:w-[1.5rem] 
