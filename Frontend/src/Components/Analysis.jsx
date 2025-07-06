@@ -89,7 +89,7 @@ export default function Analysis() {
                                             <div className="text-[1rem] lg:text-[1.2rem] font-bold">
                                                 {platform.name === 'Facebook' ? '2.5M' : 
                                                  platform.name === 'Instagram' ? '1.8M' :
-                                                 platform.name === 'WhatsApp' ? '' :
+                                                 platform.name === 'WhatsApp' ? '0' :
                                                  platform.name === 'LinkedIn' ? '450K' :
                                                  platform.name === 'YouTube' ? '1.2M' : '920K'}
                                             </div>
