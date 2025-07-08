@@ -32,7 +32,7 @@ function Dashboard() {
                     justifyContent: 'center',
                 }}
             >
-                <div className="card" style={cardStyle}>
+                <div className="card" style={cardStyle} onClick={url=> window.open('https://www.facebook.com', '_blank')}>
                     <FaFacebook
                         className="shadow-[0_0_8px_#3498db]"
                         style={{
@@ -44,7 +44,7 @@ function Dashboard() {
                     />
                     Facebook
                 </div>
-                <div className="card" style={cardStyle}>
+                <div className="card" style={cardStyle} onClick={url=> window.open('https://www.instagram.com', '_blank')}>
                     <FaInstagram
                         className="shadow-[0_0_8px_#e1306c]"
                         style={{
@@ -56,7 +56,7 @@ function Dashboard() {
                     />
                     Instagram
                 </div>
-                <div className="card" style={cardStyle}>
+                <div className="card" style={cardStyle} onClick={url=> window.open('https://twitter.com', '_blank')}>
                     <FaXTwitter
                         className="shadow-[0_0_8px_#ECF0F1]"
                         style={{
@@ -68,7 +68,7 @@ function Dashboard() {
                     />
                     Twitter
                 </div>
-                <div className="card" style={cardStyle}>
+                <div className="card" style={cardStyle} onClick={url=> window.open('https://web.whatsapp.com', '_blank')}>
                     <FaWhatsapp
                         className="shadow-[0_0_8px_#075e54]"
                         style={{
@@ -80,7 +80,7 @@ function Dashboard() {
                     />
                     WhatsApp
                 </div>
-                <div className="card" style={cardStyle}>
+                <div className="card" style={cardStyle} onClick={url=> window.open('https://www.linkedin.com', '_blank')}>
                     <FaLinkedin
                         className="shadow-[0_0_8px_#0077B5]"
                         style={{
@@ -92,7 +92,7 @@ function Dashboard() {
                     />
                     LinkedIn
                 </div>
-                <div className="card" style={cardStyle}>
+                <div className="card" style={cardStyle} onClick={url=> window.open('https://www.youtube.com', '_blank')}>
                     <FaYoutube
                         className="shadow-[0_0_8px_#CD201F]"
                         style={{
