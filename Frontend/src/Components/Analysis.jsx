@@ -1,16 +1,12 @@
-import {
-  FaFacebook,
-  FaInstagram,
-  FaWhatsapp,
-  FaLinkedin,
-  FaYoutube,
-} from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaWhatsapp, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 export default function Analysis() {
   const platforms = [
     {
       name: 'Facebook',
+      route: '/facebook',
       icon: FaFacebook,
       color: 'bg-blue-600',
       bgGradient: 'bg-gradient-to-r from-blue-600 to-blue-400',
@@ -26,6 +22,7 @@ export default function Analysis() {
     },
     {
       name: 'Instagram',
+      route: '/instagram',
       icon: FaInstagram,
       color: 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500',
       bgGradient: 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500',
@@ -41,6 +38,7 @@ export default function Analysis() {
     },
     {
       name: 'WhatsApp',
+      route: '/whatsapp',
       icon: FaWhatsapp,
       color: 'bg-green-500',
       bgGradient: 'bg-gradient-to-r from-green-500 to-green-400',
@@ -56,6 +54,7 @@ export default function Analysis() {
     },
     {
       name: 'LinkedIn',
+      route: '/linkedin',
       icon: FaLinkedin,
       color: 'bg-blue-700',
       bgGradient: 'bg-gradient-to-r from-blue-700 to-blue-600',
@@ -71,6 +70,7 @@ export default function Analysis() {
     },
     {
       name: 'YouTube',
+      route: '/youtube',
       icon: FaYoutube,
       color: 'bg-red-600',
       bgGradient: 'bg-gradient-to-r from-red-600 to-red-400',
@@ -86,6 +86,7 @@ export default function Analysis() {
     },
     {
       name: 'X (Twitter)',
+      route: '/xtwitter',
       icon: FaXTwitter,
       color: 'bg-black',
       bgGradient: 'bg-gradient-to-r from-gray-800 to-black',
@@ -114,96 +115,86 @@ export default function Analysis() {
 
           return (
             <div key={index} className="w-full">
-              <div
-                className={`${platform.bgGradient} ${platform.hoverBg} rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 relative group cursor-pointer z-10`}
-              >
+              <Link to={platform.route}>
                 <div
-                  className={`flex flex-col lg:flex-row items-start lg:items-center justify-between p-[1.5rem] lg:p-[2rem] text-white ${platform.hoverBgAlt} hover:text-white relative z-10 transition-colors duration-300 gap-[3rem] lg:gap-[4rem]`}
+                  className={`${platform.bgGradient} ${platform.hoverBg} rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 relative group cursor-pointer z-10`}
                 >
-                  {/* Left side - Icon and Platform name */}
-                  <div className="flex items-center gap-[1.5rem] mb-[1rem] lg:mb-0">
-                    <div className="bg-opacity-20 group-hover:bg-opacity-100 p-[0.5rem] rounded-lg transition-all duration-300">
-                      <IconComponent
-                        className={`text-[1.5rem] lg:text-[2rem] ${platform.hoverText} transition-colors duration-300`}
-                      />
+                  <div
+                    className={`flex flex-col lg:flex-row items-start lg:items-center justify-between p-[1.5rem] lg:p-[2rem] text-white ${platform.hoverBgAlt} hover:text-white relative z-10 transition-colors duration-300 gap-[3rem] lg:gap-[4rem]`}
+                  >
+                    {/* Left side - Icon and Platform name */}
+                    <div className="flex items-center gap-[1.5rem] mb-[1rem] lg:mb-0">
+                      <div className="bg-opacity-20 group-hover:bg-opacity-100 p-[0.5rem] rounded-lg transition-all duration-300">
+                        <IconComponent
+                          className={`text-[1.5rem] lg:text-[2rem] ${platform.hoverText} transition-colors duration-300`}
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-[1rem] lg:text-[1.5rem] font-bold">
+                          {platform.name}
+                        </h3>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-[1rem] lg:text-[1.5rem] font-bold">
-                        {platform.name}
-                      </h3>
+
+                    {/* Right side - Metrics */}
+                    <div className="flex gap-[1rem] lg:gap-[2rem] w-full lg:w-auto justify-around lg:justify-end">
+                      {metrics.followers && (
+                        <div className="text-center min-w-[4rem]">
+                          <div className="text-[1rem] lg:text-[1.2rem] font-bold">{metrics.followers}</div>
+                          <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                            Followers
+                          </div>
+                        </div>
+                      )}
+
+                      {metrics.connections && (
+                        <div className="text-center min-w-[4rem]">
+                          <div className="text-[1rem] lg:text-[1.2rem] font-bold">{metrics.connections}</div>
+                          <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                            Connections
+                          </div>
+                        </div>
+                      )}
+
+                      {metrics.groups && (
+                        <div className="text-center min-w-[4rem]">
+                          <div className="text-[1rem] lg:text-[1.2rem] font-bold">{metrics.groups}</div>
+                          <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                            Groups
+                          </div>
+                        </div>
+                      )}
+
+                      {metrics.engagement && (
+                        <div className="text-center min-w-[4rem]">
+                          <div className="text-[1rem] lg:text-[1.2rem] font-bold">{metrics.engagement}</div>
+                          <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                            Engagement
+                          </div>
+                        </div>
+                      )}
+
+                      {metrics.growth && (
+                        <div className="text-center min-w-[4rem]">
+                          <div className="text-[1rem] lg:text-[1.2rem] font-bold">{metrics.growth}</div>
+                          <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                            Growth
+                          </div>
+                        </div>
+                      )}
+
+                      {metrics.performance && (
+                        <div className="text-center min-w-[4rem]">
+                          <div className="text-[1rem] lg:text-[1.2rem] font-bold">{metrics.performance}</div>
+                          <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                            Performance
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  </div>
-
-                  {/* Right side - Metrics */}
-                  <div className="flex gap-[1rem] lg:gap-[2rem] w-full lg:w-auto justify-around lg:justify-end">
-                    {metrics.followers && (
-                      <div className="text-center min-w-[4rem]">
-                        <div className="text-[1rem] lg:text-[1.2rem] font-bold">
-                          {metrics.followers}
-                        </div>
-                        <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                          Followers
-                        </div>
-                      </div>
-                    )}
-
-                    {metrics.connections && (
-                      <div className="text-center min-w-[4rem]">
-                        <div className="text-[1rem] lg:text-[1.2rem] font-bold">
-                          {metrics.connections}
-                        </div>
-                        <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                          Connections
-                        </div>
-                      </div>
-                    )}
-
-                    {metrics.groups && (
-                      <div className="text-center min-w-[4rem]">
-                        <div className="text-[1rem] lg:text-[1.2rem] font-bold">
-                          {metrics.groups}
-                        </div>
-                        <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                          Groups
-                        </div>
-                      </div>
-                    )}
-
-                    {metrics.engagement && (
-                      <div className="text-center min-w-[4rem]">
-                        <div className="text-[1rem] lg:text-[1.2rem] font-bold">
-                          {metrics.engagement}
-                        </div>
-                        <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                          Engagement
-                        </div>
-                      </div>
-                    )}
-
-                    {metrics.growth && (
-                      <div className="text-center min-w-[4rem]">
-                        <div className="text-[1rem] lg:text-[1.2rem] font-bold">
-                          {metrics.growth}
-                        </div>
-                        <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                          Growth
-                        </div>
-                      </div>
-                    )}
-
-                    {metrics.performance && (
-                      <div className="text-center min-w-[4rem]">
-                        <div className="text-[1rem] lg:text-[1.2rem] font-bold">
-                          {metrics.performance}
-                        </div>
-                        <div className="text-[0.7rem] lg:text-[0.8rem] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                          Performance
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}
