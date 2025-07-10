@@ -10,6 +10,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
+  background: linear-gradient(to right, #0f172a, #020617);
 }
 
 /* Card hover effect */
