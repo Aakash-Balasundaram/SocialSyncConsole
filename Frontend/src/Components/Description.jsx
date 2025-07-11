@@ -2,7 +2,6 @@ import { ReactTyped } from "react-typed";
 import '/src/index.css';
 
 
-
 export default function Infobox() {
   return (
     <div className="text-center w-full">
@@ -14,6 +13,7 @@ export default function Infobox() {
           typeSpeed={90}
         />
       </p>
+
     </div>
   );
 }
