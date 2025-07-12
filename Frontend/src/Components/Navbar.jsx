@@ -1,8 +1,13 @@
 import { CgProfile } from "react-icons/cg";
 import { MdNotifications } from "react-icons/md";
 import Lamp from "./Lamp";
+import Login from "./Login";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <div className="fixed top-0 left-0 w-full flex flex-row items-start justify-between bg-transparent px-[1rem] sm:px-[1.5rem] md:px-[2rem] py-[0.75rem] sm:py-[1rem] md:py-[1.25rem]">
       <div>
@@ -29,9 +34,10 @@ export default function Navbar() {
                     sm:h-[1.25rem] sm:w-[1.25rem] 
                     md:h-[1.5rem] md:w-[1.5rem] 
                     lg:h-[2rem] lg:w-[2rem]"
+          onClick={() => navigate("/login")}
         />
       </div>
-
     </div>
   );
 }
+

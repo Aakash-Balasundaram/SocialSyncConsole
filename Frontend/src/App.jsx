@@ -8,6 +8,7 @@ import Infobox from './Components/Description';
 import Titlespace from './Components/Titlespace';
 import Analysis from './Components/Analysis';
 import Spotlight from './Components/SpotlightCursor';
+import Login from './Components/Login';
 
 // Import separate dashboard pages
 import FacebookDashboard from './Pages/FacebookDashboard';
@@ -43,7 +44,6 @@ function App() {
                   <div className="mt-[3rem] sm:mt-[4rem] md:mt-[5rem] lg:mt-[6rem]">
                     <Analysis />
                   </div>
-
                 </>
               }
             />
@@ -55,6 +55,9 @@ function App() {
             <Route path="/linkedin" element={<LinkedInDashboard />} />
             <Route path="/youtube" element={<YouTubeDashboard />} />
             <Route path="/xtwitter" element={<TwitterDashboard />} />
+
+            {/* Login route */}
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
 
