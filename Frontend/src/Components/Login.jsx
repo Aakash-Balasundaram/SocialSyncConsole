@@ -72,7 +72,7 @@ export default function AdvancedLogin() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+    <div className="w-screen min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 overflow-x-hidden -mx-4 -my-4 sm:-mx-6 sm:-my-6 md:-mx-8 md:-my-8 lg:-mx-12 lg:-my-12">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full opacity-20 animate-pulse"></div>
@@ -97,137 +97,141 @@ export default function AdvancedLogin() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
+      <div className="relative z-10 flex items-center justify-center min-h-screen p-4 py-12">
         <div className="w-full max-w-md">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-4 backdrop-blur-sm">
-              {isSignUp ? (
-                <UserPlus className="w-8 h-8 text-white" />
-              ) : (
-                <LogIn className="w-8 h-8 text-white" />
-              )}
-            </div>
-            <h1 className="text-4xl font-bold text-white mb-2">
+            <h1 className="text-4xl font-bold text-cyan-100 mb-2">
               {isSignUp ? 'Create Account' : 'Welcome Back'}
             </h1>
-            <p className="text-gray-300">
+            <p className="text-cyan-300">
               {isSignUp ? 'Join us today and get started' : 'Sign in to your account'}
             </p>
           </div>
 
           {/* Form Container */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white border-opacity-20">
+          <div className="bg-transparent bg-opacity-80 backdrop-blur-md rounded-2xl p-8 shadow-2xl">
             <div className="space-y-6">
               {/* Name Field (Sign Up Only) */}
               {isSignUp && (
                 <div className="space-y-2">
-                  <label className="text-white text-sm font-medium">Full Name</label>
+                  <label className="text-cyan-200 text-sm font-medium">Full Name</label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <div className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 rounded-full p-1">
+                      <User className="text-cyan-400 w-3 h-3" />
+                    </div>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
+                      className="w-full pl-10 pr-4 py-3 bg-white bg-opacity-15 border border-cyan-300 border-opacity-30 rounded-lg text-black placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition duration-200"
                       placeholder="Enter your full name"
                     />
                   </div>
-                  {errors.name && <p className="text-red-400 text-sm">{errors.name}</p>}
+                  {errors.name && <p className="text-red-300 text-sm">{errors.name}</p>}
                 </div>
               )}
 
               {/* Email Field */}
               <div className="space-y-2">
-                <label className="text-white text-sm font-medium">Email</label>
+                <label className="text-cyan-200 text-sm font-medium">Email</label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 rounded-full p-1">
+                    <Mail className="text-cyan-400 w-3 h-3" />
+                  </div>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
+                    className="w-full pl-10 pr-4 py-3 bg-white bg-opacity-15 border border-cyan-300 border-opacity-30 rounded-lg text-black placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition duration-200"
                     placeholder="Enter your email"
                   />
                 </div>
-                {errors.email && <p className="text-red-400 text-sm">{errors.email}</p>}
+                {errors.email && <p className="text-red-300 text-sm">{errors.email}</p>}
               </div>
 
               {/* Phone Field (Sign Up Only) */}
               {isSignUp && (
                 <div className="space-y-2">
-                  <label className="text-white text-sm font-medium">Phone Number</label>
+                  <label className="text-cyan-200 text-sm font-medium">Phone Number</label>
                   <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <div className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 rounded-full p-1">
+                      <Phone className="text-cyan-400 w-3 h-3" />
+                    </div>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
+                      className="w-full pl-10 pr-4 py-3 bg-white bg-opacity-15 border border-cyan-300 border-opacity-30 rounded-lg text-black placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition duration-200"
                       placeholder="Enter your phone number"
                     />
                   </div>
-                  {errors.phone && <p className="text-red-400 text-sm">{errors.phone}</p>}
+                  {errors.phone && <p className="text-red-300 text-sm">{errors.phone}</p>}
                 </div>
               )}
 
               {/* Password Field */}
               <div className="space-y-2">
-                <label className="text-white text-sm font-medium">Password</label>
+                <label className="text-cyan-200 text-sm font-medium">Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 rounded-full p-1">
+                    <Lock className="text-cyan-400 w-3 h-3" />
+                  </div>
                   <input
                     type={showPassword ? "text" : "password"}
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-12 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
+                    className="w-full pl-10 pr-12 py-3 bg-white bg-opacity-15 border border-cyan-300 border-opacity-30 rounded-lg text-black placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition duration-200"
                     placeholder="Enter your password"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition duration-200"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 rounded-full p-1 hover:bg-opacity-30 transition duration-200"
                   >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    {showPassword ? <EyeOff className="w-3 h-3 text-cyan-400" /> : <Eye className="w-3 h-3 text-cyan-400" />}
                   </button>
                 </div>
-                {errors.password && <p className="text-red-400 text-sm">{errors.password}</p>}
+                {errors.password && <p className="text-red-300 text-sm">{errors.password}</p>}
               </div>
 
               {/* Confirm Password Field (Sign Up Only) */}
               {isSignUp && (
                 <div className="space-y-2">
-                  <label className="text-white text-sm font-medium">Confirm Password</label>
+                  <label className="text-cyan-200 text-sm font-medium">Confirm Password</label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <div className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 rounded-full p-1">
+                      <Lock className="text-cyan-400 w-3 h-3" />
+                    </div>
                     <input
                       type={showConfirmPassword ? "text" : "password"}
                       name="confirmPassword"
                       value={formData.confirmPassword}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-12 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
+                      className="w-full pl-10 pr-12 py-3 bg-white bg-opacity-15 border border-cyan-300 border-opacity-30 rounded-lg text-black placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition duration-200"
                       placeholder="Confirm your password"
                     />
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition duration-200"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 rounded-full p-1 hover:bg-opacity-30 transition duration-200"
                     >
-                      {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                      {showConfirmPassword ? <EyeOff className="w-3 h-3 text-cyan-400" /> : <Eye className="w-3 h-3 text-cyan-400" />}
                     </button>
                   </div>
-                  {errors.confirmPassword && <p className="text-red-400 text-sm">{errors.confirmPassword}</p>}
+                  {errors.confirmPassword && <p className="text-red-300 text-sm">{errors.confirmPassword}</p>}
                 </div>
               )}
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent transition duration-200 transform hover:scale-105 shadow-lg"
+                onClick={handleSubmit}
+                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent transition duration-200 transform hover:scale-105 shadow-lg"
               >
                 {isSignUp ? 'Create Account' : 'Sign In'}
               </button>
@@ -235,11 +239,11 @@ export default function AdvancedLogin() {
 
             {/* Toggle Mode */}
             <div className="mt-6 text-center">
-              <p className="text-gray-300">
+              <p className="text-cyan-300">
                 {isSignUp ? 'Already have an account?' : "Don't have an account?"}
                 <button
                   onClick={toggleMode}
-                  className="ml-2 text-blue-400 hover:text-blue-300 font-medium transition duration-200"
+                  className="ml-2 text-cyan-400 hover:text-cyan-200 font-medium transition duration-200"
                 >
                   {isSignUp ? 'Sign In' : 'Sign Up'}
                 </button>
@@ -249,7 +253,7 @@ export default function AdvancedLogin() {
             {/* Forgot Password (Login Only) */}
             {!isSignUp && (
               <div className="mt-4 text-center">
-                <button className="text-gray-400 hover:text-white text-sm transition duration-200">
+                <button className="text-cyan-400 hover:text-cyan-200 text-sm transition duration-200">
                   Forgot your password?
                 </button>
               </div>
