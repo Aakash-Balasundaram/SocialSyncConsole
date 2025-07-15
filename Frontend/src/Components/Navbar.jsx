@@ -17,28 +17,44 @@ export default function Navbar() {
   const isProfilePage = location.pathname === '/profile';
   const isHomePage = location.pathname === '/';
 
-  return (
-    <div className="fixed top-0 left-0 w-full flex flex-row items-start justify-between bg-transparent px-[1rem] sm:px-[1.5rem] md:px-[2rem] py-[0.75rem] sm:py-[1rem] md:py-[1.25rem] z-50">
-      
-      {/* Logo */}
-      <div onClick={() => navigate('/')} className="cursor-pointer">
-        <img
-          src="/src/assets/SYCicon.svg"
-          alt="SYC Logo"
-          className="h-[3.5rem] sm:h-[4.5rem] md:h-[6rem] lg:h-[7rem] object-contain"
-        />
-      </div>
+  // Hide logo and Lamp on these platform dashboard routes
+  const hideLeftSideRoutes = [
+    '/facebook',
+    '/instagram',
+    '/linkedin',
+    '/twitter',
+    '/whatsapp',
+    '/youtube'
+  ];
+  const hideLeftSide = hideLeftSideRoutes.includes(location.pathname.toLowerCase());
 
-      {/* Center element (Lamp) – hide on profile page */}
-      {!isProfilePage && (
+  return (
+    <div className="fixed top-0 left-0 w-full flex items-start justify-between bg-transparent px-[1rem] sm:px-[1.5rem] md:px-[2rem] py-[0.75rem] sm:py-[1rem] md:py-[1.25rem] z-50">
+      
+      {/* Left side: logo (conditionally hidden) */}
+      {!hideLeftSide ? (
+        <div onClick={() => navigate('/')} className="cursor-pointer">
+          <img
+            src="/src/assets/SYCicon.svg"
+            alt="SYC Logo"
+            className="h-[3.5rem] sm:h-[4.5rem] md:h-[6rem] lg:h-[7rem] object-contain"
+          />
+        </div>
+      ) : (
+        <div /> // placeholder to maintain spacing
+      )}
+
+      {/* Center element (Lamp) – hide on profile page and dashboards */}
+      {!isProfilePage && !hideLeftSide ? (
         <div className="flex justify-center items-center">
           <Lamp />
         </div>
+      ) : (
+        <div /> // placeholder to center layout
       )}
 
-      {/* Right side: notifications + home icon (if not on home page) + profile */}
+      {/* Right side: home icon (if not on home page) + profile */}
       <div className="flex flex-row items-center gap-[0.75rem] sm:gap-[1rem] md:gap-[1.5rem]">
-        {/* ✅ Home icon (only if not on home page) */}
         {!isHomePage && (
           <AiOutlineHome
             onClick={() => navigate('/')}
@@ -52,7 +68,6 @@ export default function Navbar() {
 
         {user ? (
           <>
-            {/* Profile picture */}
             <div
               onClick={() => navigate("/profile")}
               className="cursor-pointer rounded-full border border-cyan-400 p-0.5"
@@ -68,7 +83,6 @@ export default function Navbar() {
               />
             </div>
 
-            {/* User name */}
             <span className="hidden sm:inline text-xs sm:text-sm md:text-base text-cyan-200">
               {user.name}
             </span>

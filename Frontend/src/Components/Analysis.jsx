@@ -103,7 +103,7 @@ export default function Analysis() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen mb-[4rem]">
       <div className="honk-regular text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] text-center">
         ANALYSIS
       </div>
