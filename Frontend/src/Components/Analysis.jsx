@@ -14,7 +14,7 @@ export default function Analysis() {
       hoverText: 'hover:text-blue-600',
       hoverBgAlt: 'hover:bg-blue-600',
       metrics: {
-        followers: '2.5M',
+        followers: '1M',
         engagement: '4.2%',
         growth: '+2.1%',
         performance: '82%',
@@ -30,7 +30,7 @@ export default function Analysis() {
       hoverText: 'hover:text-pink-600',
       hoverBgAlt: 'hover:bg-pink-600',
       metrics: {
-        followers: '1.8M',
+        followers: '1.5M',
         engagement: '6.8%',
         growth: '+4.3%',
         performance: '91%',
@@ -62,7 +62,7 @@ export default function Analysis() {
       hoverText: 'hover:text-blue-700',
       hoverBgAlt: 'hover:bg-blue-700',
       metrics: {
-        followers: '450K',
+        followers: '11450',
         engagement: '3.9%',
         growth: '+1.8%',
         performance: '74%',
@@ -78,7 +78,7 @@ export default function Analysis() {
       hoverText: 'hover:text-red-600',
       hoverBgAlt: 'hover:bg-red-600',
       metrics: {
-        followers: '1.2M',
+        followers: '2M',
         engagement: '5.7%',
         growth: '+5.2%',
         performance: '88%',
@@ -94,7 +94,7 @@ export default function Analysis() {
       hoverText: 'hover:text-gray-800',
       hoverBgAlt: 'hover:bg-gray-800',
       metrics: {
-        followers: '920K',
+        followers: '920',
         engagement: '3.1%',
         growth: '+2.9%',
         performance: '76%',

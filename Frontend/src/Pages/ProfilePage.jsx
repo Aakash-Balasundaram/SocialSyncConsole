@@ -57,36 +57,44 @@ export default function ProfilePage({ user }) {
   }
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#141e30] via-[#243b55] to-[#141e30] flex items-center justify-center p-4">
-      <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-3xl shadow-xl p-8 w-full max-w-sm flex flex-col items-center gap-4 border border-cyan-400">
-        
-        <div className="relative">
-          <img
-            src={preview}
-            alt="Profile"
-            className="rounded-full w-32 h-32 object-cover border-4 border-cyan-400 shadow-lg transition-transform duration-200 hover:scale-105"
-          />
-          <label className="absolute bottom-0 right-0 bg-cyan-600 hover:bg-cyan-700 text-white rounded-full p-1 cursor-pointer shadow-md">
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              className="hidden"
+    <div
+      className="min-h-screen w-full flex items-center justify-center p-4"
+      style={{ background: 'linear-gradient(to right, #0f172a, #020617)' }}
+    >
+      <div className="relative w-full max-w-sm p-8 rounded-3xl border border-cyan-400 shadow-xl flex flex-col items-center gap-4 bg-transparent overflow-hidden">
+        {/* Transparent dark background layer with blur */}
+        <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-lg rounded-3xl z-0" />
+
+        {/* Foreground content */}
+        <div className="relative z-10 flex flex-col items-center gap-4 w-full">
+          <div className="relative">
+            <img
+              src={preview}
+              alt="Profile"
+              className="rounded-full w-32 h-32 object-cover border-4 border-cyan-400 shadow-lg transition-transform duration-200 hover:scale-105"
             />
-            ✏️
-          </label>
+            <label className="absolute bottom-0 right-0 bg-cyan-600 hover:bg-cyan-700 text-white rounded-full p-1 cursor-pointer shadow-md">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+              ✏️
+            </label>
+          </div>
+
+          <h2 className="text-2xl font-semibold text-cyan-100">{storedUser.name}</h2>
+          <p className="text-cyan-300">{storedUser.email}</p>
+          <p className="text-cyan-300">{storedUser.phone}</p>
+
+          <button
+            onClick={handleLogout}
+            className="mt-4 px-6 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition transform hover:scale-105"
+          >
+            Logout
+          </button>
         </div>
-
-        <h2 className="text-2xl font-semibold text-cyan-100">{storedUser.name}</h2>
-        <p className="text-cyan-300">{storedUser.email}</p>
-        <p className="text-cyan-300">{storedUser.phone}</p>
-
-        <button
-          onClick={handleLogout}
-          className="mt-4 px-6 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition transform hover:scale-105"
-        >
-          Logout
-        </button>
       </div>
     </div>
   );
