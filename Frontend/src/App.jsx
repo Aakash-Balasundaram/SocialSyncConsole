@@ -17,6 +17,8 @@ import WhatsAppDashboard from './Pages/WhatsAppDashboard';
 import LinkedInDashboard from './Pages/LinkedInDashboard';
 import YouTubeDashboard from './Pages/YouTubeDashboard';
 import TwitterDashboard from './Pages/TwitterDashboard';
+import ProfilePage from './Pages/ProfilePage';
+
 
 function AppContent() {
   const location = useLocation();
@@ -60,6 +62,7 @@ function AppContent() {
 
           {/* Login route */}
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<ProfilePage user={JSON.parse(localStorage.getItem('user'))} />} />
         </Routes>
       </div>
 

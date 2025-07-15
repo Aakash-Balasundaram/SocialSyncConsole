@@ -18,6 +18,8 @@ app.get('/', (req, res) => {
 app.use('/api/social', require('./routes/socialRoute'));
 
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/data', require('./routes/dataRoutes'));
+
 
 
 // connect to MongoDB
