@@ -7,6 +7,7 @@ export default function Login() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [profilePic, setProfilePic] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,12 +17,14 @@ export default function Login() {
   });
   const [errors, setErrors] = useState({});
 
+  // handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
+  // validate fields
   const validateForm = () => {
     const newErrors = {};
     if (!formData.email.trim()) {
@@ -45,79 +48,74 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
+  // submit login / signup
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     try {
       if (isSignUp) {
-        // Register
-        const response = await fetch('http://localhost:5000/api/auth/register', {
+        // SIGNUP with profilePic
+        const form = new FormData();
+        form.append('name', formData.name);
+        form.append('email', formData.email);
+        form.append('phone', formData.phone);
+        form.append('password', formData.password);
+        if (profilePic) form.append('profilePic', profilePic);
+
+        const res = await fetch('http://localhost:5000/api/auth/register', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            password: formData.password,
-            profilePic: "https://yourcdn.com/mydp.jpg"
-          })
+          body: form
         });
-        const data = await response.json();
-        if (response.ok) {
-          alert("Signup successful! Please login.");
-          setIsSignUp(false); // switch to login form
+        const data = await res.json();
+        if (res.ok) {
+          alert('Signup successful! Please login.');
+          setIsSignUp(false);
         } else {
           alert(data.msg || 'Signup failed');
         }
       } else {
-        // Login
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+        // LOGIN
+        const res = await fetch('http://localhost:5000/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: formData.email,
-            password: formData.password
-          })
+          body: JSON.stringify({ email: formData.email, password: formData.password })
         });
-        const data = await response.json();
-        if (response.ok) {
+        const data = await res.json();
+        if (res.ok) {
           sessionStorage.setItem('token', data.token);
-          sessionStorage.setItem('user', JSON.stringify({
-            id: data.user.id,
-            name: data.user.name || "Bharath Shan",
-            email: data.user.email,
-            phone: data.user.phone || "1234567890",
-            profilePic: data.user.profilePic || "https://yourcdn.com/mydp.jpg"
-          }));
-          alert("Login successful!");
+          sessionStorage.setItem('user', JSON.stringify(data.user));
           navigate('/');
         } else {
           alert(data.msg || 'Login failed');
         }
       }
-    } catch (error) {
-      console.error(error);
-      alert('An error occurred. Please try again.');
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong');
     }
   };
 
+  // toggle signup / login
   const toggleMode = () => {
     setIsSignUp(!isSignUp);
     setFormData({ name: '', email: '', phone: '', password: '', confirmPassword: '' });
+    setProfilePic(null);
     setErrors({});
   };
 
   return (
     <div className="w-screen min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 overflow-x-hidden">
-      {/* Animated background circles */}
+      {/* Background circles */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500 rounded-full opacity-10 animate-pulse delay-2000"></div>
       </div>
+
+      {/* Form */}
       <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
-        <div className="w-full max-w-md space-y-6 bg-transparent bg-opacity-80 backdrop-blur-md rounded-2xl p-8 shadow-2xl">
+        <div className="w-full max-w-md space-y-6 bg-transparent backdrop-blur-md rounded-2xl p-8 shadow-2xl">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-cyan-100 mb-2">
               {isSignUp ? 'Create Account' : 'Welcome Back'}
@@ -157,6 +155,17 @@ export default function Login() {
                   />
                 </div>
                 {errors.phone && <p className="text-red-300 text-sm">{errors.phone}</p>}
+
+                {/* Profile Pic */}
+                <div className="space-y-2">
+                  <label className="text-cyan-200 text-sm font-medium">Profile Picture</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setProfilePic(e.target.files[0])}
+                    className="w-full py-2 text-cyan-100"
+                  />
+                </div>
               </>
             )}
 
